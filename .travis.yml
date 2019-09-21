@@ -1,20 +1,11 @@
 language: python
-
 python:
-
-- 3.6
-
+  - 3.7
 before_install:
-
-- python --version
-
-- pip install -U pip
-
-- pip install -U pytest
-
-- pip install -U pytest-cov
-
+  - python --version
+  - pip install -U pip
+  - pip install codecov
 script:
-
-- pytest --cov=com.kuma com/kuma/test/
+  - coverage run --source=com/kuma/ -m unittest discovery;coverage report -m
+  - python -m unittest discover
   
