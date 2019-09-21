@@ -1,4 +1,5 @@
 import pytest
+from com.kuma.calcula_parcela import valorPagamento
 from com.kuma.convertehora import converteHora
 
 def test_retornarNone():
@@ -17,3 +18,18 @@ def test_retornarNone():
 	operacao = converteHora(13, 10)
 	assert operacao == "01:10 PM", "Deveria ser 1:10 AM"
     
+
+
+def test_doisdiasAtraso():
+	operacao = valorPagamento(100,2)
+	assert operacao == 105, "Deveria ser 105"
+
+def test_valorZero():
+	operacao = valorPagamento(-1,0)
+	assert operacao == None, "Deveria ser 0"
+	
+	
+def test_semAtraso():
+	operacao = valorPagamento(100,0)
+	assert operacao == 100, "Deveria ser 100"
+
