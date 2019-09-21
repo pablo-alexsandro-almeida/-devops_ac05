@@ -17,4 +17,3 @@ before_install:
 script:
 
 - pytest --cov=com.kuma com/kuma/test/
-  
