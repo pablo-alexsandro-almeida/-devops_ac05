@@ -7,13 +7,9 @@ python:
 before_install:
 
 - python --version
+- pip install -r requirements.txt
 
-- pip install -U pip
-
-- pip install -U pytest
-
-- pip install -U pytest-cov
 
 script:
-
+- pylint_runner
 - pytest --cov=com.kuma com/kuma/test/
